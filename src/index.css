@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Rich birthday palette - warm golds, deep roses, magical purples */
+    --background: 260 25% 8%;
+    --foreground: 45 50% 95%;
+
+    --card: 260 20% 12%;
+    --card-foreground: 45 50% 95%;
+
+    --popover: 260 20% 12%;
+    --popover-foreground: 45 50% 95%;
+
+    /* Rich gold primary */
+    --primary: 45 90% 58%;
+    --primary-foreground: 260 25% 8%;
+
+    /* Deep rose secondary */
+    --secondary: 340 50% 25%;
+    --secondary-foreground: 45 50% 95%;
+
+    --muted: 260 15% 18%;
+    --muted-foreground: 45 20% 60%;
+
+    /* Magical pink accent */
+    --accent: 330 70% 55%;
+    --accent-foreground: 45 50% 98%;
+
+    /* Coral for warmth */
+    --destructive: 15 80% 55%;
+    --destructive-foreground: 45 50% 98%;
+
+    --border: 260 20% 20%;
+    --input: 260 15% 15%;
+    --ring: 45 90% 58%;
+
+    --radius: 1rem;
+
+    /* Birthday experience colors */
+    --soil: 260 30% 6%;
+    --soil-glow: 280 40% 15%;
+    --root: 30 40% 28%;
+    --trunk: 25 45% 25%;
+    --bark: 20 50% 18%;
+    --leaf: 140 50% 40%;
+    --leaf-glow: 140 60% 50%;
+    --flower: 330 75% 70%;
+    --flower-glow: 330 85% 80%;
+    --fruit: 10 75% 55%;
+    --sunrise: 40 95% 65%;
+    --sunrise-glow: 45 100% 75%;
+    --gold-glow: 45 100% 65%;
+    --seed-glow: 50 90% 55%;
+    
+    /* Birthday special colors */
+    --birthday-pink: 330 80% 65%;
+    --birthday-purple: 280 60% 50%;
+    --birthday-blue: 220 70% 55%;
+    --sparkle: 50 100% 75%;
+    --magic: 280 70% 60%;
+
+    /* Typography */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Poppins', system-ui, sans-serif;
+  }
+
+  .dark {
+    --background: 260 25% 8%;
+    --foreground: 45 50% 95%;
+    --card: 260 20% 12%;
+    --card-foreground: 45 50% 95%;
+    --popover: 260 20% 12%;
+    --popover-foreground: 45 50% 95%;
+    --primary: 45 90% 58%;
+    --primary-foreground: 260 25% 8%;
+    --secondary: 340 50% 25%;
+    --secondary-foreground: 45 50% 95%;
+    --muted: 260 15% 18%;
+    --muted-foreground: 45 20% 60%;
+    --accent: 330 70% 55%;
+    --accent-foreground: 45 50% 98%;
+    --destructive: 15 80% 55%;
+    --destructive-foreground: 45 50% 98%;
+    --border: 260 20% 20%;
+    --input: 260 15% 15%;
+    --ring: 45 90% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-sans);
+    overflow: hidden;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  /* Enhanced glow effects */
+  .glow-seed {
+    box-shadow: 0 0 30px hsl(var(--seed-glow) / 0.6),
+                0 0 60px hsl(var(--seed-glow) / 0.4),
+                0 0 100px hsl(var(--seed-glow) / 0.2),
+                0 0 150px hsl(var(--primary) / 0.1);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 40px hsl(var(--gold-glow) / 0.5),
+                0 0 80px hsl(var(--gold-glow) / 0.3),
+                0 0 120px hsl(var(--primary) / 0.2);
+  }
+
+  .glow-leaf {
+    box-shadow: 0 0 20px hsl(var(--leaf-glow) / 0.5),
+                0 0 40px hsl(var(--leaf-glow) / 0.3);
+  }
+
+  .glow-flower {
+    box-shadow: 0 0 30px hsl(var(--flower-glow) / 0.6),
+                0 0 60px hsl(var(--flower-glow) / 0.4),
+                0 0 90px hsl(var(--birthday-pink) / 0.2);
+  }
+
+  .glow-sunrise {
+    box-shadow: 0 0 80px hsl(var(--sunrise-glow) / 0.5),
+                0 0 150px hsl(var(--sunrise-glow) / 0.3),
+                0 0 200px hsl(var(--primary) / 0.2);
+  }
+
+  .glow-birthday {
+    box-shadow: 0 0 40px hsl(var(--birthday-pink) / 0.5),
+                0 0 80px hsl(var(--birthday-purple) / 0.3),
+                0 0 120px hsl(var(--primary) / 0.2);
+  }
+
+  .glow-magic {
+    box-shadow: 0 0 30px hsl(var(--magic) / 0.5),
+                0 0 60px hsl(var(--birthday-purple) / 0.3),
+                0 0 90px hsl(var(--birthday-pink) / 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.7),
+                 0 0 60px hsl(var(--primary) / 0.4),
+                 0 0 90px hsl(var(--primary) / 0.2);
+  }
+
+  .text-glow-pink {
+    text-shadow: 0 0 30px hsl(var(--birthday-pink) / 0.7),
+                 0 0 60px hsl(var(--birthday-pink) / 0.4);
+  }
+
+  .text-glow-soft {
+    text-shadow: 0 0 15px hsl(var(--foreground) / 0.4);
+  }
+
+  /* Magical gradient backgrounds */
+  .bg-soil-gradient {
+    background: radial-gradient(ellipse at bottom, hsl(280 40% 12%) 0%, hsl(var(--soil)) 50%, hsl(var(--background)) 100%);
+  }
+
+  .bg-sunrise-gradient {
+    background: linear-gradient(to top, 
+      hsl(var(--background)) 0%, 
+      hsl(280 25% 12%) 30%,
+      hsl(320 35% 18%) 60%, 
+      hsl(40 60% 25%) 100%);
+  }
+
+  .bg-night-gradient {
+    background: radial-gradient(ellipse at center top, 
+      hsl(280 30% 15%) 0%, 
+      hsl(260 25% 10%) 50%,
+      hsl(var(--background)) 100%);
+  }
+
+  .bg-birthday-gradient {
+    background: radial-gradient(ellipse at center, 
+      hsl(330 50% 15%) 0%, 
+      hsl(280 30% 12%) 50%,
+      hsl(var(--background)) 100%);
+  }
+
+  .bg-magic-gradient {
+    background: linear-gradient(135deg,
+      hsl(280 40% 12%) 0%,
+      hsl(330 35% 15%) 50%,
+      hsl(45 40% 15%) 100%);
+  }
+
+  /* Enhanced animations */
+  .pulse-gentle {
+    animation: pulseGentle 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGentle {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+    }
+  }
+
+  .pulse-birthday {
+    animation: pulseBirthday 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulseBirthday {
+    0%, 100% {
+      transform: scale(1);
+      filter: brightness(1);
+    }
+    50% {
+      transform: scale(1.08);
+      filter: brightness(1.2);
+    }
+  }
+
+  /* Sparkle animation */
+  .sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  /* Float animation for leaves */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-15px) rotate(8deg);
+    }
+    66% {
+      transform: translateY(8px) rotate(-5deg);
+    }
+  }
+
+  /* Magical shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.15) 25%,
+      hsl(var(--birthday-pink) / 0.1) 50%,
+      hsl(var(--primary) / 0.15) 75%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Rainbow border animation */
+  .rainbow-border {
+    position: relative;
+  }
+
+  .rainbow-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(45deg, 
+      hsl(var(--primary)), 
+      hsl(var(--birthday-pink)), 
+      hsl(var(--birthday-purple)),
+      hsl(var(--birthday-blue)),
+      hsl(var(--primary)));
+    background-size: 300% 300%;
+    animation: rainbowMove 3s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  @keyframes rainbowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Screen transition */
+  .screen {
+    @apply min-h-screen w-full flex flex-col items-center justify-center p-6 relative overflow-hidden;
+  }
+}
